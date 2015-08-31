@@ -1,0 +1,6 @@
+permalink: none
+baseurl: "/"
+exclude:
+- .gitignore
+- README.md
+- CNAME

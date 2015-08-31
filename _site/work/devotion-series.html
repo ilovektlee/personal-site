@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset='UTF-8'/>
+  <title>Kt Lee</title>
+  <link rel='shortcut icon' href='/images/favicon.ico' type='image/x-icon' />
+  <link rel='stylesheet' href='/fonts/open-sans.css'>
+  <link rel='stylesheet' href='/app.css'>
+</head>
+<body>
+  <div id='container'>
+
+     <div class="navigation">
+       <a href="/" class="navigation-header" id="work-navigation">WORK</a>
+       <a href="/" class="navigation-header" id="projects-navigation">PROJECTS</a>
+       <a href="/pages/info.html" class="title" id="info-navigation">INFO</a>
+
+       <div id="work-links" class="sub-navigation-list">
+         
+           <a href="/work/ikea-series.html" class="sub-navigation-title">Ikea Series</a>
+         
+           <a href="/work/devotion-series.html" class="sub-navigation-title">Devotion Series</a>
+         
+       </div>
+
+       <div id="projects-links" class="sub-navigation-list">
+         
+           <a href="/projects/270-broadway.html" class="sub-navigation-title">270 Broadway</a>
+         
+           <a href="/projects/luminal-space.html" class="sub-navigation-title">Luminal Space</a>
+         
+       </div>
+     </div>
+
+
+<div id="main">
+
+<div class="article-wrapper">
+  <div class="help post-content">
+    <p><img src="/assets/celestial_bodies_1.jpg" alt="Celestial Bodies 1" />
+<img src="/assets/celestial_bodies_2.jpg" alt="Celestial Bodies 2" /></p>
+
+<p><em>Celestial Bodies</em>, 2014<br />
+silkscreen on hanji<br />
+98” x 157”</p>
+
+<p><img src="/assets/hierarchy_1.jpg" alt="Hierarchy 1" />
+<img src="/assets/hierarchy_2.jpg" alt="Hierarchy 2" /></p>
+
+<p><em>Hierarchy</em>, 2014<br />
+silkscreen on hanji<br />
+51” x 98”</p>
+
+<p><img src="/assets/captives.jpg" alt="Captives" /></p>
+
+<p><em>Captives</em>, 2014<br />
+silkscreen on hanji<br />
+61” x 52”</p>
+
+  </div>
+</div>
+
+</div>
+
+</div> <!-- for the container -->
+
+<!-- navigation behavior -->
+<script type="text/javascript">
+  (function() {
+    var subnavigationMap = {
+      'work-navigation': 'work-links',
+      'projects-navigation': 'projects-links'
+    };
+
+    var activeSubnavigationElement;
+
+    var navigation = document.getElementsByClassName('navigation')[0];
+    var workNavigation = document.getElementById('work-navigation');
+    var projectsNavigation = document.getElementById('projects-navigation');
+
+    navigation.addEventListener('mouseout', function(ev) {
+      var x = ev.clientX;
+      var y = ev.clientY;
+      var elementMouseIsOver = document.elementFromPoint(x, y);
+      if (elementMouseIsOver.className !== 'navigation-header' && elementMouseIsOver.className !== 'sub-navigation-title') {
+        clearActiveNavigationElement();
+      }
+    }, false);
+
+    workNavigation.addEventListener('mouseover', function() {
+      setActiveSubnavigationFromNavigationElement(this);
+    }, false);
+    projectsNavigation.addEventListener('mouseover', function() {
+      setActiveSubnavigationFromNavigationElement(this);
+    }, false);
+
+    function setActiveSubnavigationFromNavigationElement(navigationElement) {
+      clearActiveNavigationElement();
+
+      var subNavigationID = subnavigationMap[navigationElement.id];
+      activeSubnavigationElement = document.getElementById(subNavigationID);
+      activeSubnavigationElement.style.display = 'block';
+    }
+
+    function clearActiveNavigationElement() {
+      if (activeSubnavigationElement) {
+        activeSubnavigationElement.style.display = 'none';
+        activeSubnavigationElement = null;
+      }
+    }
+  }());
+</script>
+
+</body>
+</html>
+

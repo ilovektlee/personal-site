@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset='UTF-8'/>
+  <title>Kt Lee</title>
+  <link rel='shortcut icon' href='{{site.baseurl}}/images/favicon.ico' type='image/x-icon' />
+  <link rel='stylesheet' href='{{site.baseurl}}/fonts/open-sans.css'>
+  <link rel='stylesheet' href='{{site.baseurl}}/app.css'>
+</head>
+<body>
+  <div id='container'>
+
+     <div class="navigation">
+       <a href="/" class="navigation-header" id="work-navigation">WORK</a>
+       <a href="/" class="navigation-header" id="projects-navigation">PROJECTS</a>
+       <a href="/pages/info.html" class="title" id="info-navigation">INFO</a>
+
+       <div id="work-links" class="sub-navigation-list">
+         {% for item in site.categories.work %}
+           <a href="{{site.baseurl}}{{item.url}}" class="sub-navigation-title">{{item.title}}</a>
+         {% endfor %}
+       </div>
+
+       <div id="projects-links" class="sub-navigation-list">
+         {% for item in site.categories.projects %}
+           <a href="{{site.baseurl}}{{item.url}}" class="sub-navigation-title">{{item.title}}</a>
+         {% endfor %}
+       </div>
+     </div>

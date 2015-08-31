@@ -1,0 +1,51 @@
+</div> <!-- for the container -->
+
+<!-- navigation behavior -->
+<script type="text/javascript">
+  (function() {
+    var subnavigationMap = {
+      'work-navigation': 'work-links',
+      'projects-navigation': 'projects-links'
+    };
+
+    var activeSubnavigationElement;
+
+    var navigation = document.getElementsByClassName('navigation')[0];
+    var workNavigation = document.getElementById('work-navigation');
+    var projectsNavigation = document.getElementById('projects-navigation');
+
+    navigation.addEventListener('mouseout', function(ev) {
+      var x = ev.clientX;
+      var y = ev.clientY;
+      var elementMouseIsOver = document.elementFromPoint(x, y);
+      if (elementMouseIsOver.className !== 'navigation-header' && elementMouseIsOver.className !== 'sub-navigation-title') {
+        clearActiveNavigationElement();
+      }
+    }, false);
+
+    workNavigation.addEventListener('mouseover', function() {
+      setActiveSubnavigationFromNavigationElement(this);
+    }, false);
+    projectsNavigation.addEventListener('mouseover', function() {
+      setActiveSubnavigationFromNavigationElement(this);
+    }, false);
+
+    function setActiveSubnavigationFromNavigationElement(navigationElement) {
+      clearActiveNavigationElement();
+
+      var subNavigationID = subnavigationMap[navigationElement.id];
+      activeSubnavigationElement = document.getElementById(subNavigationID);
+      activeSubnavigationElement.style.display = 'block';
+    }
+
+    function clearActiveNavigationElement() {
+      if (activeSubnavigationElement) {
+        activeSubnavigationElement.style.display = 'none';
+        activeSubnavigationElement = null;
+      }
+    }
+  }());
+</script>
+
+</body>
+</html>
