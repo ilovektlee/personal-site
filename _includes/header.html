@@ -17,13 +17,13 @@
 
        <div id="work-links" class="sub-navigation-list">
          {% for item in site.categories.work %}
-           <a href="{{site.baseurl}}{{item.url}}" class="sub-navigation-title">{{item.title}}</a>
+           <a href="/{{item.url}}" class="sub-navigation-title">{{item.title}}</a>
          {% endfor %}
        </div>
 
        <div id="projects-links" class="sub-navigation-list">
          {% for item in site.categories.projects %}
-           <a href="{{site.baseurl}}{{item.url}}" class="sub-navigation-title">{{item.title}}</a>
+           <a href="/{{item.url}}" class="sub-navigation-title">{{item.title}}</a>
          {% endfor %}
        </div>
      </div>
