@@ -30,6 +30,15 @@
       setActiveSubnavigationFromNavigationElement(this);
     }, false);
 
+    var urlComponents = window.location.pathname.split('/');
+    if (urlComponents.length > 1) {
+      var currentCategory = urlComponents[1];
+      var correspondingElement = document.getElementById(currentCategory + '-navigation');
+      if (correspondingElement) {
+        correspondingElement.classList.add('active-navigation');
+      }
+    }
+
     function setActiveSubnavigationFromNavigationElement(navigationElement) {
       clearActiveNavigationElement();
 

@@ -13,7 +13,7 @@
      <div class="navigation">
        <a href="/" class="navigation-header" id="work-navigation">WORK</a>
        <a href="/" class="navigation-header" id="projects-navigation">PROJECTS</a>
-       <a href="/pages/info.html" class="title" id="info-navigation">INFO</a>
+       <a href="/pages/info.html" class="navigation-header" id="info-navigation">INFO</a>
 
        <div id="work-links" class="sub-navigation-list">
          
@@ -36,8 +36,25 @@
 <div id="main">
 
 <div class="article-wrapper">
-  <div class="help post-content">
-    
+  <div class="post-content">
+    <p><a href="/assets/broadway/270_broadway_catalogue.pdf">
+  <img src="/assets/broadway/catalogue.gif" alt="Catalogue GIF" />
+</a></p>
+
+<p><img src="/assets/broadway/1.jpg" alt="270 Broadway 1" />
+<img src="/assets/broadway/2.jpg" alt="270 Broadway 2" />
+<img src="/assets/broadway/3.jpg" alt="270 Broadway 3" />
+<img src="/assets/broadway/4.jpg" alt="270 Broadway 4" />
+<img src="/assets/broadway/5.jpg" alt="270 Broadway 5" />
+<img src="/assets/broadway/6.jpg" alt="270 Broadway 6" />
+<img src="/assets/broadway/7.jpg" alt="270 Broadway 7" />
+<img src="/assets/broadway/8.jpg" alt="270 Broadway 8" />
+<img src="/assets/broadway/9.jpg" alt="270 Broadway 9" />
+<img src="/assets/broadway/10.jpg" alt="270 Broadway 10" />
+<img src="/assets/broadway/11.jpg" alt="270 Broadway 11" />
+<img src="/assets/broadway/12.jpg" alt="270 Broadway 12" />
+<img src="/assets/broadway/13.jpg" alt="270 Broadway 13" />
+<img src="/assets/broadway/14.jpg" alt="270 Broadway 14" /></p>
 
   </div>
 </div>
@@ -75,6 +92,15 @@
     projectsNavigation.addEventListener('mouseover', function() {
       setActiveSubnavigationFromNavigationElement(this);
     }, false);
+
+    var urlComponents = window.location.pathname.split('/');
+    if (urlComponents.length > 1) {
+      var currentCategory = urlComponents[1];
+      var correspondingElement = document.getElementById(currentCategory + '-navigation');
+      if (correspondingElement) {
+        correspondingElement.classList.add('active-navigation');
+      }
+    }
 
     function setActiveSubnavigationFromNavigationElement(navigationElement) {
       clearActiveNavigationElement();

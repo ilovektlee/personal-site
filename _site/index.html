@@ -13,7 +13,7 @@
      <div class="navigation">
        <a href="/" class="navigation-header" id="work-navigation">WORK</a>
        <a href="/" class="navigation-header" id="projects-navigation">PROJECTS</a>
-       <a href="/pages/info.html" class="title" id="info-navigation">INFO</a>
+       <a href="/pages/info.html" class="navigation-header" id="info-navigation">INFO</a>
 
        <div id="work-links" class="sub-navigation-list">
          
@@ -64,6 +64,15 @@
     projectsNavigation.addEventListener('mouseover', function() {
       setActiveSubnavigationFromNavigationElement(this);
     }, false);
+
+    var urlComponents = window.location.pathname.split('/');
+    if (urlComponents.length > 1) {
+      var currentCategory = urlComponents[1];
+      var correspondingElement = document.getElementById(currentCategory + '-navigation');
+      if (correspondingElement) {
+        correspondingElement.classList.add('active-navigation');
+      }
+    }
 
     function setActiveSubnavigationFromNavigationElement(navigationElement) {
       clearActiveNavigationElement();
